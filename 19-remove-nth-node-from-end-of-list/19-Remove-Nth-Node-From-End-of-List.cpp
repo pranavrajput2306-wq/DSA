@@ -24,17 +24,14 @@ public:
            delete temp;
            return head;
         }
-        ListNode* prev=nullptr;
         ListNode* curr=head;
         cnt1=0;
         while(curr!=nullptr){
             cnt1++;
-            if(cnt1==n){
-                prev->next=curr->next;
-                delete curr;
+            if(cnt1==n-1){
+                curr->next=curr->next->next;
                 return head;
             }
-            prev=curr;
             curr=curr->next;
         }
         return head;
