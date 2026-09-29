@@ -1,6 +1,6 @@
 # 🚀 Daily LeetCode
 
-Welcome to my **Daily LeetCode** repository!
+Welcome to my **Daily LeetCode* repository!
 This repo contains my solutions to LeetCode problems that I solve regularly to improve my **Data Structures & Algorithms (DSA)**, problem-solving skills, and coding consistency.
 
 ## 🎯 Goals
