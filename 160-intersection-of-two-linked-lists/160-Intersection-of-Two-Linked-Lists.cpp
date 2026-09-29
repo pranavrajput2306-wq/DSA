@@ -24,20 +24,35 @@ struct ListNode
 
 class Solution {
 public:
-    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-    unordered_map<ListNode*,int>seen;
-    ListNode* temp=headA;
-    while(temp!=nullptr){
-        seen[temp]=1;
+ListNode* intersectionPoint(ListNode* temp1,ListNode* temp2,int d){
+   while(d){
+    d--;
+    temp2=temp2->next;
+   }
+   while(temp1!=temp2){
+    temp1=temp1->next;
+    temp2=temp2->next;
+   }
+   return temp1;
+}
+     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+     ListNode* temp=headA;
+     int n1=0;
+     while(temp!=nullptr){
+        n1++;
         temp=temp->next;
-    }
-    temp=headB;
-    while(temp!=nullptr){
-        if(seen.count(temp)){
-            return temp;
-        }
+     }
+     temp=headB;
+     int n2=0;
+     while(temp!=nullptr){
+        n2++;
         temp=temp->next;
-    }
-    return temp;
+     }
+     if(n2>=n1){
+        return intersectionPoint(headA,headB,n2-n1);
+     }
+     else{
+        return intersectionPoint(headB,headA,n1-n2);
+     }
     }
 };
